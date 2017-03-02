@@ -1,8 +1,7 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
-import Button from './Button/Button';
-import ButtonContainer from './Button/ButtonContainer';
-import ShowBar from './ShowBar/ShowBar';
+import ButtonContainer from '../Button/ButtonContainer';
+import ShowBarContainer from '../ShowBar/ShowBarContainer';
 
 
 export default class App extends React.Component<undefined, undefined> {
@@ -14,7 +13,7 @@ export default class App extends React.Component<undefined, undefined> {
   render () {
     return (
       <div>
-        <ShowBar />
+        <ShowBarContainer />
         <ButtonContainer /> 
       </div>
     );
