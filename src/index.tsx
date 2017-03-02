@@ -2,15 +2,15 @@ import * as React from 'react';
 import {createStore} from 'redux';
 import { Provider } from 'react-redux';
 import * as ReactDOM from 'react-dom';
-import Hello from './components/Hello';
 import reducer from './redux/reducer';
+import App from './components/App';
 
 
 let store = createStore(reducer);
 
 ReactDOM.render(
   <Provider store={store}>
-    <Hello compiler="typescript" framework="React" />
+    <App />
   </Provider>
   ,
   document.getElementById("content")
