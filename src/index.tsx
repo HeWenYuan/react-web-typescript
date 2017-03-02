@@ -3,15 +3,13 @@ import {createStore} from 'redux';
 import { Provider } from 'react-redux';
 import * as ReactDOM from 'react-dom';
 import reducer from './redux/reducer';
-
-import Hello from './components/Hello';
-
+import App from './components/App';
 
 let store = createStore(reducer);
 
 ReactDOM.render(
   <Provider store={store}>
-    <Hello framework="React" compiler="TypeScript" />
+    <App />
   </Provider>
   ,
   document.getElementById("content")
