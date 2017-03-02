@@ -1,0 +1,32 @@
+{
+  "name": "react-web-typescript",
+  "version": "1.0.0",
+  "description": "react typescript express",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://git.oschina.net/jokerdrake/react-web-typescript.git"
+  },
+  "keywords": [
+    "typescript",
+    "react",
+    "express"
+  ],
+  "author": "jokerdrake",
+  "license": "ISC",
+  "dependencies": {
+    "@types/react": "^15.0.14",
+    "@types/react-dom": "^0.14.23",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "webpack": "^2.2.1"
+  },
+  "devDependencies": {
+    "awesome-typescript-loader": "^3.0.8",
+    "source-map-loader": "^0.1.6",
+    "typescript": "^2.2.1"
+  }
+}
