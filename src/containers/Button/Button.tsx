@@ -1,14 +1,19 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
+import * as _ from 'lodash';
 
-export interface PropsList {color:string;};
-export interface StateList {};
+interface PropsList {color:string;};
+interface StateList {};
 
 class Button extends React.Component<PropsList, StateList> {
 
-  static contextTypes = {
+  static propTypes = {
     store: React.PropTypes.object.isRequired
   };
+
+  static contextTypes = {
+    store: React.PropTypes.object.isRequired
+  }
 
   constructor(args:any) {
     super(args);
@@ -16,13 +21,18 @@ class Button extends React.Component<PropsList, StateList> {
       color: 23
     };
   }
+
+  componentWillReceiveProps(nextProps:any) {
+    if (!_.isEqual(nextProps, this.props)) {
+      console.log(nextProps);
+      console.log('color is changed !');
+    }
+  }
   
   changeColor (color:string) {
-    console.log(color);
     this.setState({color: color});
     try {
       this.context.store.dispatch({type: color});
-      console.log('dispatch has been run.');
     } catch(error) {console.log(error);}
   }
 
