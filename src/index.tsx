@@ -8,6 +8,7 @@ import reducer from './redux/reducer';
 
 import App from './containers/App/App';
 import Hello from './containers/Hello/Hello';
+import Test from './containers/Test/Test';
 
 
 let store = createStore(reducer);
@@ -17,6 +18,7 @@ ReactDOM.render(
     <Router history={browserHistory}>
       <Route path="/" component={App}></Route>
       <Route path="/hello" component={Hello}></Route>
+      <Route path="/test" component={Test}></Route>
     </Router>
   </Provider>
   ,
