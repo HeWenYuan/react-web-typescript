@@ -1,8 +1,9 @@
 import * as React from 'react';
+import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import * as _ from 'lodash';
 
-interface PropsList {color:string;};
+interface PropsList {color:string; changeColor:any;};
 interface StateList {};
 
 class Button extends React.Component<PropsList, StateList> {
@@ -32,7 +33,10 @@ class Button extends React.Component<PropsList, StateList> {
   changeColor (color:string) {
     this.setState({color: color});
     try {
-      this.context.store.dispatch({type: color});
+      // this.context.store.dispatch({type: color});
+      // this.props.changeColor();
+      // this.context.store.dispatch(this.props.changeColor(color));
+      this.props.changeColor(color);
     } catch(error) {console.log(error);}
   }
 
@@ -52,11 +56,16 @@ const mapStateToProps = function(state:any) {
   };
 };
 
-const mapDispatchToProps = {
-  changeColor: function(color:string) {
-    return {type: color};
-  }
-};
+const mapDispatchToProps = (dispatch:any) => {
+  return bindActionCreators(
+    {
+      changeColor: function(color:any) {
+        return {type: color};
+      }
+    },
+    dispatch
+  );
+}
 
 let VisibleButton = connect(mapStateToProps, mapDispatchToProps)(Button);
 
