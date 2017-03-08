@@ -1,7 +1,8 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
+import { bindActionCreators } from 'redux';
 
-interface PropsList {color: string};
+interface PropsList {color: string; changColor: any};
 interface StateList {};
 
 class ShowBar extends React.Component<PropsList, StateList> {
@@ -28,10 +29,10 @@ const mapStateToProps = function(state:any) {
   };
 };
 
-const mapDispatchToProps = {
-  changeColor: function(color:string) {
-    return {type: color}
-  }
+const mapDispatchToProps = (dispatch:any) => {
+  return bindActionCreators({
+    
+  }, dispatch);
 };
 
 let VisibleShowBar = connect(mapStateToProps, mapDispatchToProps)(ShowBar);

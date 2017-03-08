@@ -59,9 +59,7 @@ const mapStateToProps = function(state:any) {
 const mapDispatchToProps = (dispatch:any) => {
   return bindActionCreators(
     {
-      changeColor: function(color:any) {
-        return {type: color};
-      }
+      changeColor: (color:string) => ({type: color})
     },
     dispatch
   );
