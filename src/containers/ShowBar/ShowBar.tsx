@@ -30,10 +30,13 @@ const mapStateToProps = function(state:any) {
 };
 
 const mapDispatchToProps = (dispatch:any) => {
-  return bindActionCreators({
-    
-  }, dispatch);
-};
+  return bindActionCreators(
+    {
+      
+    },
+    dispatch
+  );
+}
 
 let VisibleShowBar = connect(mapStateToProps, mapDispatchToProps)(ShowBar);
 
