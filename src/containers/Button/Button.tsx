@@ -3,7 +3,13 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import * as _ from 'lodash';
 
-interface PropsList {color:string; changeColor:any;};
+import getTestData from "../../redux/app";
+
+interface PropsList {
+  color:string,
+  changeColor:any,
+  getTestData:any
+};
 interface StateList {};
 
 class Button extends React.Component<PropsList, StateList> {
@@ -40,11 +46,16 @@ class Button extends React.Component<PropsList, StateList> {
     } catch(error) {console.log(error);}
   }
 
+  getTestData() {
+    this.props.getTestData();
+  }
+
   render () {
     return (
       <div>
         <button onClick={()=> this.changeColor('yellow')}>变黄</button>
         <button onClick={()=> this.changeColor('blue')}>变蓝</button>
+        <button onClick={() => this.getTestData()}></button>
       </div>
     );
   }
@@ -59,7 +70,8 @@ const mapStateToProps = function(state:any) {
 const mapDispatchToProps = (dispatch:any) => {
   return bindActionCreators(
     {
-      changeColor: (color:string) => ({type: color})
+      changeColor: (color:string) => ({type: color}),
+      getTestData: getTestData
     },
     dispatch
   );

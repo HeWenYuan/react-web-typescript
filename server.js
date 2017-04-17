@@ -34,6 +34,10 @@ app.use(function(req, res, next) {
   next(err);
 });
 
+app.use("/get_test_data", (req, res) => {
+  res.json({ msg: "get test data success !", code: 1 });
+});
+
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
