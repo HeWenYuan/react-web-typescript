@@ -48,7 +48,7 @@ export default class Button extends React.Component<PropsList, StateList> {
       <div>
         <button onClick={()=> this.changeColor('yellow')}>变黄</button>
         <button onClick={()=> this.changeColor('blue')}>变蓝</button>
-        <button onClick={() => this.getTestData()}></button>
+        <button onClick={() => this.getTestData()}>getTestData</button>
       </div>
     );
   }

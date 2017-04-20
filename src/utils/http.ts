@@ -1,4 +1,4 @@
-export default class http {
+export class http {
   private url:string;
   private method:string;
   private data:any;
@@ -9,6 +9,7 @@ export default class http {
     this.method = method;
     this.data = data;
     this.xhr = new XMLHttpRequest();
+    this.cb = cb;
   }
 
   public request () {
@@ -30,6 +31,8 @@ export default class http {
       
       xhr.onreadystatechange = () => {
         if (xhr.readyState === 4 && xhr.status === 200) {
+          console.log(xhr.responseText);
+          console.log(cb);
           cb(JSON.parse(xhr.responseText));
         }
       };
@@ -53,5 +56,13 @@ export default class http {
     };
     return true;
   }
+}
 
+export function getTestData () {
+  let cb = (res:any) => {
+    console.log(res);
+  };
+  let rq = new http("/get_test_data", "get", {}, cb);
+
+  rq.request();
 }

@@ -1,4 +1,3 @@
-import http from "../utils/http";
 
 const initialState = {
   num: 0,
@@ -33,11 +32,3 @@ export default (state = initialState, action:any) => {
       return state
   }
 };
-
-export function getTestData () {
-  let rq = new http("/get_test_data", "get", {}, (res:any) => {
-    console.log(res);
-  });
-
-  rq.request();
-}
