@@ -1,11 +1,11 @@
 import * as React from 'react';
 import {connect} from 'react-redux';
 import { Link } from 'react-router';
-import VisibleShowBar from '../ShowBar/ShowBar';
-import VisibleButton from '../Button/Button';
+import ShowBar from '../ShowBar';
+import Button from '../Button';
 
 
-export default class App extends React.Component<undefined, undefined> {
+export default class App extends React.Component<any, any> {
 
   static contextTypes = {
     store: React.PropTypes.object.isRequired
@@ -14,8 +14,8 @@ export default class App extends React.Component<undefined, undefined> {
   render () {
     return (
       <div>
-        <VisibleShowBar />
-        <VisibleButton />
+        <ShowBar />
+        <Button />
         <Link to="/test">test page</Link>
       </div>
     );

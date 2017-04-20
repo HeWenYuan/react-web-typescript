@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 interface PropsList {color: string; changColor: any};
 interface StateList {};
 
-class ShowBar extends React.Component<PropsList, StateList> {
+export default class ShowBar extends React.Component<PropsList, StateList> {
 
   static contextTypes = {
     store: React.PropTypes.object.isRequired
@@ -22,22 +22,3 @@ class ShowBar extends React.Component<PropsList, StateList> {
     );
   }
 }
-
-const mapStateToProps = function(state:any) {
-  return {
-    color: state.app.color
-  };
-};
-
-const mapDispatchToProps = (dispatch:any) => {
-  return bindActionCreators(
-    {
-      
-    },
-    dispatch
-  );
-}
-
-let VisibleShowBar = connect(mapStateToProps, mapDispatchToProps)(ShowBar);
-
-export default VisibleShowBar;

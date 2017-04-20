@@ -4,22 +4,13 @@ import {createStore} from 'redux';
 import { Provider } from 'react-redux';
 import * as ReactDOM from 'react-dom';
 import reducer from './redux/reducer';
-
-
-import App from './containers/App/App';
-import Hello from './containers/Hello/Hello';
-import Test from './containers/Test/Test';
-
+import Routes from './Routes';
 
 let store = createStore(reducer);
 
 ReactDOM.render(
   <Provider store={store}>
-    <Router history={browserHistory}>
-      <Route path="/" component={App}></Route>
-      <Route path="/hello" component={Hello}></Route>
-      <Route path="/test" component={Test}></Route>
-    </Router>
+    <Routes />
   </Provider>
   ,
   document.getElementById("content")
