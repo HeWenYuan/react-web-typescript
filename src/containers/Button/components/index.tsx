@@ -1,5 +1,6 @@
 import * as React from 'react';
 import * as _ from 'lodash';
+require('./index.scss');
 
 interface PropsList {
   color:string,

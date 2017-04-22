@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import { Link } from 'react-router';
 import ShowBar from '../ShowBar';
 import Button from '../Button';
+import "./index.scss";
 
 
 export default class App extends React.Component<any, any> {
@@ -17,6 +18,9 @@ export default class App extends React.Component<any, any> {
         <ShowBar />
         <Button />
         <Link to="/test">test page</Link>
+        <div>
+          <img src={require('./Joker.jpg')} alt="myimg"/>
+        </div>
       </div>
     );
   }

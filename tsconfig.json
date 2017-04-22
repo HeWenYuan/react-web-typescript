@@ -5,8 +5,17 @@
     "noImplicitAny": true,
     "module": "commonjs",
     "target": "es5",
-    "jsx": "react"
+    "jsx": "react",
+    "paths": {
+      "src": ["./src"],
+      "root": ["."]
+    },
+    "baseUrl": "./"
   },
+  "files": [
+    "./src/**/*",
+    "./js_transition.d.ts"
+  ],
   "include": [
     "./src/**/*"
   ]
