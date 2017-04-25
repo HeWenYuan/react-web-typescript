@@ -10,15 +10,6 @@ interface PropsList {
 interface StateList {};
 
 export default class Button extends React.Component<PropsList, StateList> {
-
-  static propTypes = {
-    store: React.PropTypes.object.isRequired
-  };
-
-  static contextTypes = {
-    store: React.PropTypes.object.isRequired
-  }
-
   constructor(args:any) {
     super(args);
     this.state = {

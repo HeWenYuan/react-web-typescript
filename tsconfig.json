@@ -13,7 +13,7 @@
     "baseUrl": "./"
   },
   "files": [
-    "./src/**/*",
+    "./src/index.tsx",
     "./js_transition.d.ts"
   ],
   "include": [

@@ -4,6 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var config = require('./config');
 
 var app = express();
 
@@ -25,7 +26,7 @@ app.use("/get_test_data", (req, res) => {
 });
 
 app.get('/*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'src/index.html'));
+  res.sendFile(path.join(__dirname, 'public/dist/index.html'));
 });
 
 // catch 404 and forward to error handler
@@ -54,7 +55,7 @@ var http = require('http');
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '5000');
+var port = normalizePort(process.env.PORT || config.port);
 app.set('port', port);
 
 /**
