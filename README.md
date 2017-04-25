@@ -19,61 +19,47 @@ npm install webpack -g
     "noImplicitAny": true,
     "module": "commonjs",
     "target": "es5",
-    "jsx": "react"
+    "jsx": "react",
+    "paths": {
+      "src": ["./src"],
+      "root": ["."]
+    },
+    "baseUrl": "./"
   },
+  "files": [
+    "./src/index.tsx",
+    "./js_transition.d.ts"
+  ],
   "include": [
     "./src/**/*"
   ]
 }
 ```
 
-4.create webpack.config.js
+4.install cnpm
 ```javascript
-module.exports = {
-    entry: "./src/index.tsx",
-    output: {
-        filename: "bundle.js",
-        path: __dirname + "/public/dist"
-    },
-
-    // Enable sourcemaps for debugging webpack's output.
-    devtool: "source-map",
-
-    resolve: {
-        // Add '.ts' and '.tsx' as resolvable extensions.
-        extensions: [".webpack.js", ".web.js", ".ts", ".tsx", ".js"]
-    },
-
-    module: {
-        loaders: [
-            // All files with a '.ts' or '.tsx' extension will be handled by 'awesome-typescript-loader'.
-            { test: /\.tsx?$/, loader: "awesome-typescript-loader" },
-            { test: /\.(png|jpg|gif|jpeg)$/, loader: 'url-loader?limit=8192' }
-        ],
-
-        // preLoaders: [
-        //     // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
-        //     { test: /\.js$/, loader: "source-map-loader" }
-        // ]
-    },
-
-    // When importing a module whose path matches one of the following, just
-    // assume a corresponding global variable exists and use that instead.
-    // This is important because it allows us to avoid bundling all of our
-    // dependencies, which allows browsers to cache those libraries between builds.
-    externals: {
-        "react": "React",
-        "react-dom": "ReactDOM"
-    },
-};
+npm install -g cnpm --registry=https://registry.npm.taobao.org
 ```
+
 
 5. then npm install the other modules:
 ```javascript
-npm install
+cnpm i
 ```
 
 6. start the server:
 ```javascript
+
+// if you want to run development
 npm run start
+
+// if you want to run production
+npm run prod
+
+// other development
+npm run start
+
+// other development
+npm start
+
 ```
