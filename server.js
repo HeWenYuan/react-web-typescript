@@ -6,6 +6,9 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var config = require('./config');
 
+console.log('server env:');
+console.log(config);
+
 var app = express();
 
 // view engine setup

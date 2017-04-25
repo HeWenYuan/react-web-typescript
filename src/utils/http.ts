@@ -1,15 +1,15 @@
 export class http {
-  private url:string;
-  private method:string;
-  private data:any;
-  private xhr:any;
-  private cb?:Function;
+  private url:string; // url地址
+  private method:string; // 调用接口的方法,get,post,put,del
+  private data:any; // 需要向server传送的数据
+  private xhr:any; // XMLHttpRequest对象
+  private cb?:Function; // 获取服务器返回以后的回调函数
   constructor (url:string, method:string, data:any, cb?:Function) {
-    this.url = url;
-    this.method = method;
-    this.data = data;
-    this.xhr = new XMLHttpRequest();
-    this.cb = cb;
+    this.url = url; 
+    this.method = method; 
+    this.data = data; 
+    this.xhr = new XMLHttpRequest(); 
+    this.cb = cb; 
   }
 
   public request () {
@@ -50,7 +50,7 @@ export class http {
 
   public del() {}
 
-  public isEmptyObject(obj:any) {
+  private isEmptyObject(obj:any) {
     for (let key in obj) {
       return false;
     };

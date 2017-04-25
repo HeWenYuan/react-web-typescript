@@ -17,10 +17,11 @@ export default class App extends React.Component<any, any> {
       <div>
         <ShowBar />
         <Button />
-        <Link to="/test">test page</Link>
+        <Link to="/test">test pageasd</Link>
         <div>
-          <img src={require('./Joker.jpg')} alt="myimg"/>
+          <img src='/res/test.png' alt="myimg"/>
         </div>
+        <div className='bg'></div>
       </div>
     );
   }
