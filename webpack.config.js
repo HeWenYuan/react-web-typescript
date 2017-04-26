@@ -24,8 +24,8 @@ if (process.env.NODE_ENV === 'development') {
             filename: __dirname + "/public/dist/index.html"
         }),
         // hot replace
-        new webpack.HotModuleReplacementPlugin(),
-        new webpack.NamedModulesPlugin()
+        // new webpack.HotModuleReplacementPlugin(),
+        // new webpack.NamedModulesPlugin()
     ];
 } else {
     entry.push('./src/index.tsx');
@@ -34,17 +34,16 @@ if (process.env.NODE_ENV === 'development') {
 
 console.log(require('./config'));
 
-module.exports = {
+let host = config.host;
+let port = config.port;
+
+let webpackConfig = {
     entry: entry,
-    // output: {
-    //     filename: "bundle.js",
-    //     path: __dirname + "/public/dist"
-    // },
     output: {
-        path: BUILD_PATH,
+        path: './public/dist/', // js以及image,css处理后所在的目录
         filename: '[name]-[hash].js',
         chunkFilename: '[name]-[hash].js',
-        publicPath: 'http://localhost:5000/dist/'
+        publicPath: 'http://' + host + ':' + port + '/dist' // html模板处理后所在的牡蛎,index.html
     },
 
     devtool: "inline-source-map",
@@ -67,19 +66,22 @@ module.exports = {
         ]
     },
 
-    // 忽略某些包,不打包进bundle里面
     // externals: {
     //     "react": "React",
     //     "react-dom": "ReactDOM"
     // },
-    
-    devServer: {
-        contentBase: "'http://localhost:5000/dist/'",//本地服务器所加载的页面所在的目录
-        port: "8080",
-        historyApiFallback: true,//不跳转
-        inline: true,//实时刷新
-        hot: true
-    },
 
     plugins: webpackPlugins
 };
+
+if (process.env.NODE_ENV === 'development') {
+    webpackConfig.devServer = {
+        port: '5000',
+        contentBase: "./public",//本地服务器所加载的页面所在的目录
+        colors: true,//终端中输出结果为彩色
+        historyApiFallback: true,//不跳转
+        inline: true//实时刷新
+    };
+}
+
+module.exports = webpackConfig;
