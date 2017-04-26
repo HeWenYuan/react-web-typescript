@@ -12,17 +12,21 @@ let webpackPlugins = [
     new webpack.optimize.UglifyJsPlugin()
 ];
 
+let host = config.host;
+let port = config.port;
 let entry = [];
 
 if (process.env.NODE_ENV === 'development') {
     console.log('webpack env:', process.env.NODE_ENV);
     // entry.push('webpack-hot-middleware/client?path=http://' + config.host + ':' + config.port + '/');
-    entry.push('./src/index.tsx');
+    entry.push("webpack-dev-server/client?http://"+ host + ":" + port + "/", "webpack/hot/dev-server", './src/index.tsx');
     webpackPlugins = [
         new HtmlWebpackPlugin({
             template: __dirname + "/src/index.html",
             filename: __dirname + "/public/dist/index.html"
         }),
+        new webpack.HotModuleReplacementPlugin(),
+    new webpack.NamedModulesPlugin()
         // hot replace
         // new webpack.HotModuleReplacementPlugin(),
         // new webpack.NamedModulesPlugin()
@@ -34,16 +38,13 @@ if (process.env.NODE_ENV === 'development') {
 
 console.log(require('./config'));
 
-let host = config.host;
-let port = config.port;
-
 let webpackConfig = {
     entry: entry,
     output: {
         path: './public/dist/', // js以及image,css处理后所在的目录
         filename: '[name]-[hash].js',
         chunkFilename: '[name]-[hash].js',
-        publicPath: 'http://' + host + ':' + port + '/dist' // html模板处理后所在的牡蛎,index.html
+        publicPath: 'http://' + host + ':' + port + '/dist' // html模板处理后所在的目录,index.html
     },
 
     devtool: "inline-source-map",

@@ -17,7 +17,7 @@ export default class App extends React.Component<any, any> {
       <div>
         <ShowBar />
         <Button />
-        <Link to="/test">I Love You ! 2b2b,sbsb</Link>
+        <Link to="/test">I Love You !</Link>
         <div>
           <img src='/res/test.png' alt="myimg"/>
         </div>
