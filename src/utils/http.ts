@@ -3,8 +3,8 @@ export class http {
   private method:string; // 调用接口的方法,get,post,put,del
   private data:any; // 需要向server传送的数据
   private xhr:any; // XMLHttpRequest对象
-  private cb?:Function; // 获取服务器返回以后的回调函数
-  constructor (url:string, method:string, data:any, cb?:Function) {
+  private cb:Function; // 获取服务器返回以后的回调函数
+  constructor (url:string, method:string, data:any, cb:Function) {
     this.url = url; 
     this.method = method; 
     this.data = data; 

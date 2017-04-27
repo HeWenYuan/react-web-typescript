@@ -26,6 +26,10 @@ export default class App extends React.Component<any, any> {
         </div>
         <div className='bg'></div>
         asdasdasd
+        云端图片
+        <div>
+          <img src="https://o44j7l4g3.qnssl.com/reply_script_material/1493264952/qrcode.jpeg" alt="yunduan"/>
+        </div>
       </div>
     );
   }
