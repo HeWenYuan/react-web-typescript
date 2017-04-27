@@ -1,6 +1,7 @@
 const webpack = require("webpack");
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const BUILD_PATH = path.resolve(path.resolve(__dirname), 'public/dist');
 const config = require('./config');
 
@@ -25,6 +26,7 @@ if (process.env.NODE_ENV === 'development') {
             template: __dirname + "/src/index.html",
             filename: __dirname + "/public/dist/index.html"
         }),
+        new ExtractTextPlugin("styles.css"),
     //     new webpack.HotModuleReplacementPlugin(),
     // new webpack.NamedModulesPlugin()
         // hot replace
@@ -60,7 +62,8 @@ let webpackConfig = {
             },
             { test: /\.(png|jpg|gif|jpeg)$/, use: 'url-loader?limit=8192' },
             // { test: /\.(png|jpg|gif|jpeg)$/, use: ['url-loader?limit=8192&name=images/[name].[ext]&publicPath=' + __dirname + 'public/dist', 'file-loader'] },
-            { test: /\.css$/, use: ["style-loader", "css-loader"] },
+            // { test: /\.css$/, use: ["style-loader", "css-loader"] },
+            { test: /\.css$/, use: ExtractTextPlugin.extract({ fallback: 'style-loader', use: 'css-loader' }) },
             {
                 test: /\.scss$/,
                 use: ["style-loader", "css-loader", "sass-loader"]
