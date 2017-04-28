@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Router, Route, browserHistory } from 'react-router';
 
-import App from './containers/App';
+import App from './components/App';
 
 export default class Routes extends React.Component<any, any> {
   render() {
