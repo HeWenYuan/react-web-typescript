@@ -49,11 +49,8 @@ cnpm i
 
 6. start the server:
 ```javascript
-
 // if you want to run development
 npm run start
-
 // if you want to run production
 npm run prod
-
 ```
