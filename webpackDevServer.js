@@ -4,6 +4,9 @@ const config = require('./config');
 const WebpackDevServer = require("webpack-dev-server");
 const webpackConfig = require("./webpack.config.js");
 
+console.log(webpackConfig.entry);
+
+// "cross-env NODE_ENV=development webpack-dev-server --devtool eval --progress --colors --content-base public"
 
 let host = config.host;
 let port = config.port;

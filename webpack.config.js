@@ -20,6 +20,9 @@ let entry = [];
 if (process.env.NODE_ENV === 'development') {
     console.log('webpack env:', process.env.NODE_ENV);
     // entry.push('webpack-hot-middleware/client?path=http://' + config.host + ':' + config.port + '/');
+    // entry.push('webpack/hot/dev-server/client?path=http://localhost:8080/');
+    // entry.push('webpack/hot/dev-server');
+    
     entry.push('./src/index.tsx');
     webpackPlugins = [
         new HtmlWebpackPlugin({
@@ -40,10 +43,11 @@ if (process.env.NODE_ENV === 'development') {
 
 console.log(require('./config'));
 
+console.log(entry);
 let webpackConfig = {
     entry: entry,
     output: {
-        path: './public/dist/', // js以及image,css处理后所在的目录
+        path: __dirname + '/public/dist/', // js以及image,css处理后所在的目录
         filename: '[name]-[hash].js',
         chunkFilename: '[name]-[hash].js',
         publicPath: '/dist/' // html模板处理后所在的目录,index.html
