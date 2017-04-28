@@ -6,7 +6,6 @@
   "scripts": {
     "prestart": "",
     "start": "cross-env NODE_ENV=development node ./webpackDevServer",
-    "dev": "cross-env NODE_ENV=development webpack; cross-env NODE_ENV=development node ./server",
     "prod": "cross-env NODE_ENV=production webpack; cross-env NODE_ENV=production node ./server"
   },
   "repository": {

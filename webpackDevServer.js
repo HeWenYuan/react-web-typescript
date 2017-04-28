@@ -4,7 +4,7 @@ const config = require('./config');
 const WebpackDevServer = require("webpack-dev-server");
 const webpackConfig = require("./webpack.config.js");
 
-console.log(webpackConfig.entry);
+webpackConfig.output.publicPath = 'http://'+ config.host +':'+ config.port +'/';
 
 // "cross-env NODE_ENV=development webpack-dev-server --devtool eval --progress --colors --content-base public"
 
@@ -24,8 +24,8 @@ let serverConfig = {
   staticOptions: {
   },
   stats: { colors: true },
-  // contentBase: './public/dist/',
-  // publicPath: '/',
+  contentBase: './public',
+  publicPath: webpackConfig.output.publicPath,
   headers: {
     'X-Custom-Header': 'yes'
   },
@@ -35,6 +35,13 @@ let serverConfig = {
       secure: false,
       bypass: function (req, res, proxyOptions) {
         return '/'
+      }
+    },
+    '/test': {
+      target: '',
+      secure: false,
+      bypass: function (req, res) {
+        return res.json({msg: 'test proxy ok !'});
       }
     }
   },
