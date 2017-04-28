@@ -38,18 +38,32 @@ let serverConfig = {
     'X-Custom-Header': 'yes'
   },
   proxy: {
-    '/**': {
-      target: '/index.html',
+    // '/**': {
+    //   target: '/index.html',
+    //   secure: false,
+    //   bypass: function (req, res, proxyOptions) {
+    //     return '/'
+    //   }
+    // },
+    // 'test': {
+    //   target: '',
+    //   secure: false,
+    //   bypass: function (req, res, proxyOptions) {
+    //     return res.json({msg: 'test proxy ok !'});
+    //   }
+    // },
+    'get_color': {
+      target: '',
       secure: false,
       bypass: function (req, res, proxyOptions) {
-        return '/'
+        return res.json({code: 200, color: 'purple'});
       }
     },
-    '/test': {
+    'get_test_data': {
       target: '',
       secure: false,
       bypass: function (req, res) {
-        return res.json({msg: 'test proxy ok !'});
+        return res.json({msg: 'get_test_data success !'});
       }
     }
   },

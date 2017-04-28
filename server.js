@@ -28,6 +28,10 @@ app.use("/get_test_data", (req, res) => {
   res.json({ msg: "get test data success !", code: 1 });
 });
 
+app.use("/get_color", (req, res) => {
+  res.json({color: "purple", code: 200});
+});
+
 app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname, 'public/dist/index.html'));
 });

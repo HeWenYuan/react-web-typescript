@@ -1,3 +1,4 @@
+import { assign } from 'lodash';
 
 const initialState = {
   num: 0,
@@ -6,28 +7,12 @@ const initialState = {
 
 export default (state = initialState, action:any) => {
   switch (action.type) {
-    case 'INCREMENT':
-      return {
-        ...state,
-        num: 3
-      };
-    case 'DECREMENT':
-      return {
-        ...state,
-        num: 0
-      };
-
     case 'yellow':
-      return {
-        ...state,
-        color: 'yellow'
-      };
-
+      return assign({}, state, {color: action.color});
     case 'blue':
-      return {
-        ...state,
-        color: 'blue'
-      };
+      return assign({}, state, {color: action.color});
+    case 'change_color': 
+      return assign({}, state, {color: action.color});
     default:
       return state
   }

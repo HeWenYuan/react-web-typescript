@@ -31,8 +31,6 @@ export class http {
       
       xhr.onreadystatechange = () => {
         if (xhr.readyState === 4 && xhr.status === 200) {
-          console.log(xhr.responseText);
-          console.log(cb);
           cb(JSON.parse(xhr.responseText));
         }
       };
@@ -63,6 +61,13 @@ export function getTestData () {
     console.log(res);
   };
   let rq = new http("/get_test_data", "get", {}, cb);
+
+  rq.request();
+}
+
+export function getServerColor(cb:any) {
+  
+  let rq = new http("/get_color", "get", {}, cb);
 
   rq.request();
 }
