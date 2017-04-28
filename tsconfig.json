@@ -16,8 +16,5 @@
   },
   "files": [
     "./js_transition.d.ts"
-  ],
-  "include": [
-    "./src/**/*"
   ]
 }
