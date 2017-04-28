@@ -9,7 +9,7 @@
     "target": "es5",
     "jsx": "react",
     "paths": {
-      "src": ["./src"],
+      "src": ["./client"],
       "root": ["."]
     },
     "baseUrl": "./"
@@ -18,6 +18,6 @@
     "./js_transition.d.ts"
   ],
   "include": [
-    "./src/**/*"
+    "./client/**/*"
   ]
 }

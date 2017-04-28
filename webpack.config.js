@@ -33,10 +33,10 @@ let webpackConfig = {
 
 if (process.env.NODE_ENV === 'development') {
     console.log('webpack env:', process.env.NODE_ENV);
-    webpackConfig.entry.push('./src/index.tsx');
+    webpackConfig.entry.push('./client/index.tsx');
     webpackConfig.plugins.push(
         new HtmlWebpackPlugin({
-            template: __dirname + "/src/index.html",
+            template: __dirname + "/client/index.html",
             filename: __dirname + "/public/dist/index.html"
         }),
         new ExtractTextPlugin("styles.css")
@@ -48,10 +48,10 @@ if (process.env.NODE_ENV === 'development') {
     );
 } else {
     console.log("webpack env:", process.env.NODE_ENV);
-    webpackConfig.entry.push('./src/index.tsx');
+    webpackConfig.entry.push('./client/index.tsx');
     webpackConfig.plugins.push(
         new HtmlWebpackPlugin({
-            template: __dirname + "/src/index.html",
+            template: __dirname + "/client/index.html",
             filename: __dirname + "/public/dist/index.html"
         }),
         new ExtractTextPlugin("styles.css"),
