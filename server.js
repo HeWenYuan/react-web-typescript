@@ -4,7 +4,13 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var config = require('./config');
+var config;
+
+if (file_exists('./config/local.json')) {
+    config = require('./config/local.json');
+} else {
+    config = require('./config/config.json');
+}
 
 console.log('server env:');
 console.log(config);
@@ -137,4 +143,13 @@ function onListening() {
     ? 'pipe ' + addr
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
+}
+
+function file_exists(path) {
+  try {
+    fs.lstatSync(path);
+    return true;
+  } catch (e) {
+    return false;
+  }
 }
