@@ -11,6 +11,11 @@ let webpackPlugins = [
         filename: __dirname + "/public/dist/index.html"
     }),
     new webpack.optimize.UglifyJsPlugin()
+    // new webpack.ProvidePlugin({
+    //     $: "jqeury",
+    //     jQuery: 'jquery',
+    //     Cookies: "js-cookie"
+    // })
 ];
 
 let host = config.host;

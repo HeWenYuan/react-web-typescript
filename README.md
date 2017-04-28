@@ -56,10 +56,4 @@ npm run start
 // if you want to run production
 npm run prod
 
-// other development
-npm run start
-
-// other development
-npm start
-
 ```
