@@ -17,21 +17,22 @@ npm install webpack -g
     "outDir": "./dist/",
     "sourceMap": true,
     "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "strictNullChecks": true,
     "module": "commonjs",
     "target": "es5",
     "jsx": "react",
     "paths": {
-      "src": ["./src"],
+      "src": ["./client"],
       "root": ["."]
     },
     "baseUrl": "./"
   },
   "files": [
-    "./src/index.tsx",
     "./js_transition.d.ts"
   ],
   "include": [
-    "./src/**/*"
+    "./client/**/*"
   ]
 }
 ```
