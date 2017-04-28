@@ -1,0 +1,8 @@
+{
+  "project": "react-web-typescript",
+  "name": "development",
+  "host": "localhost",
+  "port": 5000,
+  "client": {},
+  "server": {}
+}

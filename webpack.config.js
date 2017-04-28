@@ -2,7 +2,13 @@ const webpack = require("webpack");
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
-const config = require('./config');
+var config;
+
+if (file_exists('./config/local.json')) {
+    config = require('./config/local.json');
+} else {
+    config = require('./config/config.json');
+}
 
 let webpackConfig = {
     entry: [],
@@ -65,3 +71,12 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 module.exports = webpackConfig;
+
+function file_exists(path) {
+  try {
+    fs.lstatSync(path);
+    return true;
+  } catch (e) {
+    return false;
+  }
+}

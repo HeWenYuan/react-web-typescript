@@ -1,8 +1,16 @@
 const path = require('path');
 const webpack = require('webpack');
-const config = require('./config');
 const WebpackDevServer = require("webpack-dev-server");
 const webpackConfig = require("./webpack.config.js");
+var config;
+
+if (file_exists('./config/local.json')) {
+    config = require('./config/local.json');
+} else {
+    config = require('./config/config.json');
+}
+
+console.log(config);
 
 webpackConfig.output.publicPath = 'http://'+ config.host +':'+ config.port +'/';
 
@@ -64,3 +72,12 @@ let server = new WebpackDevServer(compiler, serverConfig);
 server.listen(port, host, function() {
   console.log('listening on ' + host + ' : ' + port);
 });
+
+function file_exists(path) {
+  try {
+    fs.lstatSync(path);
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
