@@ -1,1 +1,1 @@
-declare var require:any;
+declare var backend_url:any;

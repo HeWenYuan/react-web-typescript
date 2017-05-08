@@ -2,7 +2,9 @@
   "project": "react-web-typescript",
   "name": "development",
   "host": "localhost",
-  "port": 5000,
-  "client": {},
+  "port": 4000,
+  "client": {
+    "backend_url": "http://www.baidu.com"
+  },
   "server": {}
 }

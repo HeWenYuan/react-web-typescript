@@ -2,13 +2,7 @@ const webpack = require("webpack");
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
-var config;
-
-if (file_exists('./config/local.json')) {
-    config = require('./config/local.json');
-} else {
-    config = require('./config/config.json');
-}
+const config = require('./config');
 
 let webpackConfig = {
     entry: [],
@@ -45,12 +39,15 @@ if (process.env.NODE_ENV === 'development') {
             template: __dirname + "/client/index.html",
             filename: __dirname + "/public/dist/index.html"
         }),
-        new ExtractTextPlugin("styles.css")
+        new ExtractTextPlugin("styles.css"),
         // new webpack.ProvidePlugin({
         //     $: "jqeury",
         //     jQuery: 'jquery',
         //     Cookies: "js-cookie"
-        // })
+        // }),
+        new webpack.DefinePlugin({
+            backend_url: JSON.stringify(config.client.backend_url)
+        })
     );
 } else {
     console.log("webpack env:", process.env.NODE_ENV);
@@ -61,12 +58,15 @@ if (process.env.NODE_ENV === 'development') {
             filename: __dirname + "/public/dist/index.html"
         }),
         new ExtractTextPlugin("styles.css"),
-        new webpack.optimize.UglifyJsPlugin()
+        new webpack.optimize.UglifyJsPlugin(),
         // new webpack.ProvidePlugin({
         //     $: "jqeury",
         //     jQuery: 'jquery',
         //     Cookies: "js-cookie"
-        // })
+        // }),
+        new webpack.DefinePlugin({
+            backend_url: JSON.stringify(config.client.backend_url)
+        })
     );
 }
 

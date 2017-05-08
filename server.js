@@ -4,16 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var config;
-
-if (file_exists('./config/local.json')) {
-    config = require('./config/local.json');
-} else {
-    config = require('./config/config.json');
-}
-
-console.log('server env:');
-console.log(config);
+var config = require('./config');
 
 var app = express();
 

@@ -27,6 +27,10 @@ export default class App extends React.Component<AppProps, AppState> {
     };
   }
 
+  componentWillMount():void {
+    console.log(backend_url);
+  }
+
   render () {
     return (
       <div>

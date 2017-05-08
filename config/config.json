@@ -3,6 +3,8 @@
   "name": "production",
   "host": "localhost",
   "port": 5000,
-  "client": {},
+  "client": {
+    "backend_url": "http://www.baidu.com"
+  },
   "server": {}
 }
