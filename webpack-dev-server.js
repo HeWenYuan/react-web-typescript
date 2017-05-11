@@ -64,8 +64,8 @@ let serverConfig = {
 // 开启Hot Module Replacement相关设置
 if ( process.env.NODE_ENV === 'development' ) {
   webpackConfig.profile = true;
-  webpackConfig.entry.push("webpack-dev-server/client?http://"+ host + ":" + port + "/");
-  webpackConfig.entry.push("webpack/hot/dev-server");
+  webpackConfig.entry.index.push("webpack-dev-server/client?http://"+ host + ":" + port + "/");
+  webpackConfig.entry.index.push("webpack/hot/dev-server");
   webpackConfig.plugins.push(
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin()

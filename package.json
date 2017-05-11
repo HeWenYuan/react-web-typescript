@@ -52,6 +52,7 @@
     "awesome-typescript-loader": "^3.0.8",
     "axios": "^0.16.1",
     "blueimp-md5": "^2.7.0",
+    "clean-webpack-plugin": "^0.1.16",
     "cross-env": "^4.0.0",
     "css-loader": "^0.28.0",
     "extract-text-webpack-plugin": "^2.1.0",
