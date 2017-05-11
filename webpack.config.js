@@ -59,11 +59,9 @@ if (process.env.NODE_ENV === 'development') {
         }),
         new ExtractTextPlugin("styles.css"),
         new webpack.optimize.UglifyJsPlugin(),
-        // new webpack.ProvidePlugin({
-        //     $: "jqeury",
-        //     jQuery: 'jquery',
-        //     Cookies: "js-cookie"
-        // }),
+        new webpack.ProvidePlugin({
+        //    html2canvas: 'html2canvas'
+        }),
         new webpack.DefinePlugin({
             backend_url: JSON.stringify(config.client.backend_url)
         })

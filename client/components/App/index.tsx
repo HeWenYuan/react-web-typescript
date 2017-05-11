@@ -34,6 +34,12 @@ export default class App extends React.Component<AppProps, AppState> {
   render () {
     return (
       <div>
+        <div>
+          hasdhlkasdas
+        </div>
+        <div>
+          <img src="http://7xo6t4.com2.z0.glb.qiniucdn.com/user_0002.png" alt=""/>
+        </div>
         <ShowBar />
         <Button />
         <Link to="/test">sb</Link>
