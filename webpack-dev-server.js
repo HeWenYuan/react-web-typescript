@@ -6,8 +6,6 @@ const config = require('./config');
 
 webpackConfig.output.publicPath = 'http://'+ config.host +':'+ config.port +'/';
 
-// "cross-env NODE_ENV=development webpack-dev-server --devtool eval --progress --colors --content-base public"
-
 let host = config.host;
 let port = config.port;
 console.log(host, port);
@@ -28,40 +26,9 @@ let serverConfig = {
   publicPath: webpackConfig.output.publicPath,
   headers: {
     'X-Custom-Header': 'yes'
-  },
-  proxy: {
-    // '/**': {
-    //   target: '/index.html',
-    //   secure: false,
-    //   bypass: function (req, res, proxyOptions) {
-    //     return '/'
-    //   }
-    // },
-    // 'test': {
-    //   target: '',
-    //   secure: false,
-    //   bypass: function (req, res, proxyOptions) {
-    //     return res.json({msg: 'test proxy ok !'});
-    //   }
-    // },
-    'get_color': {
-      target: '',
-      secure: false,
-      bypass: function (req, res, proxyOptions) {
-        return res.json({code: 200, color: 'purple'});
-      }
-    },
-    'get_test_data': {
-      target: '',
-      secure: false,
-      bypass: function (req, res) {
-        return res.json({msg: 'get_test_data success !'});
-      }
-    }
-  },
+  }
 }
 
-// 开启Hot Module Replacement相关设置
 if ( process.env.NODE_ENV === 'development' ) {
   webpackConfig.profile = true;
   webpackConfig.entry.index.push("webpack-dev-server/client?http://"+ host + ":" + port + "/");
@@ -76,14 +43,5 @@ let compiler = webpack(webpackConfig);
 let server = new WebpackDevServer(compiler, serverConfig);
 
 server.listen(port, host, function() {
-  console.log('listening on ' + host + ' : ' + port);
+  console.info('==> 🚧  Webpack development server listening on port %s', port);
 });
-
-function file_exists(path) {
-  try {
-    fs.lstatSync(path);
-    return true;
-  } catch (e) {
-    return false;
-  }
-}
